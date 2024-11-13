@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load PHP File</title>
+</head>
+<body>
+    <h1>Hello!!!</h1>
+
+    <script>
+        function loadPhpFile() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "script.php", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log("PHP file loaded successfully.");
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send();
+        }
+
+        loadPhpFile();
+    </script>
+</body>
+</html>
